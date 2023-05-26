@@ -3,14 +3,11 @@ import sys
 def filter_urls(urls, patterns):
     vulnerable_urls = []
 
-    for index, url in enumerate(urls, start=1):
+    for url in urls:
         for pattern in patterns:
             if pattern in url:
                 vulnerable_urls.append(url)
                 break
-        
-        # Print progress message
-        print(f"Processed URL {index}/{len(urls)}")
 
     return vulnerable_urls
 
@@ -60,5 +57,6 @@ patterns = [
 
 filtered_urls = filter_urls(urls, patterns)
 
+# Print the filtered URLs
 for url in filtered_urls:
     print(url)
